@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block titulo %}
+    Blog Company
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/index.css" %}" />
+<link rel="stylesheet" href="{% static "blog/posts.css" %}" />
+{% endblock %}
+
+{% block conteudo %}
+    <section id="welcome">
+        <header>
+            <img src="static/blog/images/logo.png" alt="Company Logomarca" />
+            <h2>Blog da Nossa Empresa</h2>
+        </header>
+        </section>
+        <section id="latest-post">
+            <h2>Os Nossos Posts Mais Recentes</h2>
+            <ul>
+                {% for post in posts %}
+                    {% include 'blog/includes/post.html' %}
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="about">
+            <h2>Sobre Nós</h2>
+            <p>Proin libero felis, hendrerit nec faucibus at, lacinia et ligula. Sed eu tempus libero, non tristique erat. Fusce ut dictum ipsum. Morbi bibendum pellentesque nibh at gravida. Nunc ac lacus malesuada mauris convallis interdum quis non turpis. Praesent non velit convallis, pulvinar tellus nec, sodales tellus. Aliquam mollis dictum augue, vel venenatis dui eleifend vitae. Maecenas maximus et metus a gravida.</p>
+        </section>
+{% endblock %}
